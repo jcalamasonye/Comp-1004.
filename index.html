@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account Manager</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main>
+      <div id="form_container">
+        <h2>Account Manager</h2>
+        <br/>
+        <form id="credentialsForm">
+          <label for="websiteName">Website Name:</label>
+          <input type="text" id="websiteName" required /><br /><br />
+          <label for="username">Username:</label>
+          <input type="text" id="username" required /><br /><br />
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            required
+            oninput="checkPasswordStrength(this.value)" /><br />
+
+          <div id="password-strength">
+            <div id="password-bar"></div>
+          </div>
+          <p id="strength-description">Strength: Weak</p>
+
+          <br /><br />
+          <button
+            type="button"
+            onclick="saveCredentials()"
+            class="myFormButton">
+            Save
+          </button>
+
+          <br />
+        </form>
+
+        <div class="row">
+          <button onclick="importPasswords()" class="import_button">
+            Import Passwords
+          </button>
+          <button onclick="exportPasswords()" class="import_button">
+            Export Passwords
+          </button>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="saved">
+          <h2>Saved Values</h2>
+          <br />
+          <button
+            id="togglePasswordsButton"
+            onclick="togglePasswordsVisibility()">
+            Show Passwords
+          </button>
+
+          <ol id="savedValues"></ol>
+        </div>
+      </div>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
